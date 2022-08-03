@@ -8,7 +8,8 @@ const Navbar = () => {
             <div className="flex">
                 <p>NAVBAR</p>
                 <NavLinks toLink="/" titleLink="Home" />
-                {/* <NavLinks toLink="/mv" titleLink="MV" /> */}
+                <NavLinks toLink="/top100" titleLink="Top 100" />
+
             </div>
         </div>
     );
