@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;700&display=swap');
+
+:root {
+  --color-body-bg: rgb(1, 46, 67);
+  --color-primary-bg: #bbcdff;
+  --color-text: #fff;
+  --color-primary: #335eea;
+  --color-secondary-bg: #323232;
+  --color-secondary-bg-for-transparent: hsla(0,0%,100%,0.08);
+  --color-primary-bg-for-transparent: hsla(0,0%,100%,0.12);
+  --color-navbar-bg: rgba(34,34,34,0.86);
+  --color-player-slider: hsla(0,0%,50.2%,.18);
+}
+
+body {
+  background-color: var(--color-body-bg);
+  font-family: 'Barlow', sans-serif;
+}
