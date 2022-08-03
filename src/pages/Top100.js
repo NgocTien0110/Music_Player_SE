@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
-import Loading from "../components/Loading"
+import { getTop100 } from "../api/top100"
+import PlaylistCover from "../components/PlaylistCover"
 
 const Top100 = () => {
 
@@ -8,7 +9,7 @@ const Top100 = () => {
   useEffect(() => {
     (
       async () => {
-        // ...
+        setDataTop100(await getTop100())
       }
     )()
   }, [])
@@ -19,24 +20,28 @@ const Top100 = () => {
         {/* Playlist */}
         <div className="mt-8">
           {
-            dataTop100
-            ?
+            dataTop100 &&
             dataTop100.map((e, i) => (
-              <div key={i}>
+              <>
                 <div
                   className="flex justify-between items-end text-[28px] font-bold text-[color:var(--color-text)] mt-9 mb-3 uppercase">
-                  {e.title}
+                  {(e.title === "") ? (e.sectionId.slice(1)) : (e.title)}
                 </div>
                 <div
                   className="grid grid-cols-5 gap-x-6 gap-y-11">
                   {
-                    // ...
+                    e.items.map((element, index) => (
+                      <PlaylistCover
+                        title={element.title}
+                        link={`/playlist/${element.encodeId}`}
+                        thumbnail={element.thumbnail}
+                        sortDescription={element.sortDescription}
+                      />
+                    ))
                   }
                 </div>
-              </div>
+              </>
             ))
-            :
-            <Loading />
           }
         </div>
         {/* End Playlist */}
