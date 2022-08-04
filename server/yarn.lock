@@ -1201,6 +1201,11 @@
   "resolved" "https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz"
   "version" "4.0.0"
 
+"yarn@^1.22.19":
+  "integrity" "sha512-/0V5q0WbslqnwP91tirOvldvYISzaqhClxzyUKXYxs07yUILIs5jx/k6CFe8bvKSkds5w+eiOqta39Wk3WxdcQ=="
+  "resolved" "https://registry.npmjs.org/yarn/-/yarn-1.22.19.tgz"
+  "version" "1.22.19"
+
 "zingmp3-api-full@^1.0.13":
   "integrity" "sha512-rpcLmX3bC69APNVPkPHRxLkoJduukfnFRPNEfHpmZRC6/RkujcTZtMbFCM6iOox/kGFBezH9bThxYot7LsdSig=="
   "resolved" "https://registry.npmjs.org/zingmp3-api-full/-/zingmp3-api-full-1.0.13.tgz"
