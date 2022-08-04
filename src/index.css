@@ -20,3 +20,38 @@ body {
   background-color: var(--color-body-bg);
   font-family: 'Barlow', sans-serif;
 }
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/*
+::-webkit-scrollbar {
+  width: 8px;
+  overflow: auto;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(128, 128, 128, 0.38);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 128, 128, 0.7);
+}
+*/
+
+.style__buttons {
+  @apply p-2 flex justify-center items-center bg-transparent rounded-[25%] transition-all duration-200 hover:bg-[color:var(--color-secondary-bg-for-transparent)]
+}
+
+@keyframes lyric-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
