@@ -1,5 +1,4 @@
 import React from 'react';
-import { SvgProps } from '../../utils/types';
 
 const Play = ({ setColor, setWidth, setHeight, ...orthers }) => {
     return (

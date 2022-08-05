@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { detailPlaylistInfoProps } from "../utils/types"
 import IconPlay from "./Icons/Play"
 import IconHeart from "./Icons/Heart"
 

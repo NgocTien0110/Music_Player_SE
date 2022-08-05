@@ -1,5 +1,4 @@
 import React from 'react';
-import { SvgProps } from '../../utils/types';
 
 const Heart = ({ setColor, setWidth, setHeight, ...orthers }) => {
     return (

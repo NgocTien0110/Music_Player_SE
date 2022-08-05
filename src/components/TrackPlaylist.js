@@ -1,5 +1,4 @@
 import React from 'react';
-// import { TrackListDetailPlaylistProps } from '../utils/types';
 import { Link } from 'react-router-dom';
 import { formatTime } from '../utils/formatTime';
 // import { useAppDispatch, useAppSelector } from '../hooks/redux';
