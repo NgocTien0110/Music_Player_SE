@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from '../pages/Home';
 import Top100 from '../pages/Top100';
 import ChartHome from '../pages/ChartHome';
+import SearchResult from "../components/Navbar/SearchBox/SearchResult"
 
 const RouterPage = () => {
     return (
@@ -11,6 +12,9 @@ const RouterPage = () => {
             <Route path="/" element={<Home />} />
             <Route path="/zingchart" element={<ChartHome />} />
             <Route path="/top100" element={<Top100 />} />
+            <Route path="/search" element={<SearchResult />}>
+                <Route path=":keyword" element={<SearchResult />} />
+            </ Route>
         </Routes>
     );
 };

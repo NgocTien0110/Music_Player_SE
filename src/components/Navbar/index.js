@@ -1,4 +1,5 @@
 import React from 'react';
+import Search from "./SearchBox"
 import NavArrows from './NavArrows';
 import NavLinks from './NavLinks';
 
@@ -15,6 +16,7 @@ const Navbar = () => {
                 <NavLinks toLink="/zingchart" titleLink="ZingChart" />
                 <NavLinks toLink="/top100" titleLink="Top 100" />
             </div>
+            <Search />
         </div>
     );
 };
