@@ -2,13 +2,13 @@ import React, { useState, useRef } from 'react';
 import { formatTime } from '../../utils/formatTime';
 
 const Slider = ({ setWidth, setHeight, percentSlider, getPercentSlider, toogleTooltip, currentTimeSongTooltip }) => {
-    const sliderRef = useRef < HTMLDivElement > null;
+    const sliderRef = useRef();
 
     // Active UI Dot Slider Hover
-    const [isActiveSliderDotHover, setActiveSliderDotHover] = useState < boolean > false;
+    const [isActiveSliderDotHover, setActiveSliderDotHover] = useState(false);
 
     // Active UI Tooltip Dot Hover
-    const [isActiveSliderTooltipHover, setActiveSliderTooltipHover] = useState < boolean > false;
+    const [isActiveSliderTooltipHover, setActiveSliderTooltipHover] = useState(false);
 
     // Handler Active Dot Slider Hover
     const handleActiveSliderDotHover = (handle) => {

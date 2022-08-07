@@ -1,47 +1,37 @@
-import React from "react"
-import IconNext from "../../Icons/Next"
-import { useAppSelector, useAppDispatch } from "../../../hooks/redux"
-import { setSongId, setCurrnetIndexPlaylist, changeIconPlay } from "../../../redux/features/audioSlice"
+import React from 'react';
+import IconNext from '../../Icons/Next';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSongId, setCurrentIndexPlaylist, changeIconPlay } from '../../../redux/features/audioSlice';
 
 const NextControl = () => {
+    const currnetIndexPlaylist = useSelector((state) => state.audio.currnetIndexPlaylist);
+    const playlistSong = useSelector((state) => state.audio.playlistSong);
 
-  const currnetIndexPlaylist = useAppSelector((state) => state.audio.currnetIndexPlaylist)
-  const playlistSong = useAppSelector((state) => state.audio.playlistSong)
+    const dispatch = useDispatch();
 
-  const dispatch = useAppDispatch()
+    const handleNextSong = () => {
+        if (playlistSong !== undefined && playlistSong.length > 0) {
+            let currentIndex;
 
-  const handleNextSong = () => {
-    if(playlistSong !== undefined && playlistSong.length > 0) {
+            if (currnetIndexPlaylist === playlistSong.length - 1) {
+                currentIndex = 0;
+            } else {
+                currentIndex = currnetIndexPlaylist + 1;
+            }
 
-      let currentIndex
+            dispatch(setCurrentIndexPlaylist(currentIndex));
 
-      if(currnetIndexPlaylist === playlistSong.length - 1) {
-        currentIndex = 0
-      } else {
-        currentIndex = currnetIndexPlaylist + 1
-      }
+            dispatch(setSongId(playlistSong[currentIndex].encodeId));
 
-      dispatch(setCurrnetIndexPlaylist(
-        currentIndex
-      ))
+            dispatch(changeIconPlay(true));
+        }
+    };
 
-      dispatch(setSongId(
-        playlistSong[currentIndex].encodeId
-      ))
+    return (
+        <button onClick={handleNextSong} className="mx-2 my-0 style__buttons" title="Next Song">
+            <IconNext setColor="white" setWidth="16px" setHeight="16px" />
+        </button>
+    );
+};
 
-      dispatch(changeIconPlay(true))
-    }
-  }
-
-  return (
-    <button
-      onClick={handleNextSong}
-      className="mx-2 my-0 style__buttons"
-      title="Next Song"
-    >
-      <IconNext setColor="white" setWidth="16px" setHeight="16px" />
-    </button>
-  )
-}
-
-export default NextControl
+export default NextControl;
