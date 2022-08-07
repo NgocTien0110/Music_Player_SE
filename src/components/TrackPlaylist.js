@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { formatTime } from '../utils/formatTime';
-// import { useAppDispatch, useAppSelector } from '../hooks/redux';
-// import { setSongId, changeIconPlay, setAutoPlay, setCurrnetIndexPlaylist } from '../redux/features/audioSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSongId, changeIconPlay, setAutoPlay, setCurrentIndexPlaylist } from '../redux/features/audioSlice';
 
 const TrackListDetailPlaylist = ({ items }) => {
-    // const currnetIndexPlaylist = useAppSelector((state) => state.audio.currnetIndexPlaylist);
+    const currnetIndexPlaylist = useSelector((state) => state.audio.currnetIndexPlaylist);
 
-    // const dispatch = useAppDispatch();
+    const dispatch = useDispatch();
 
     return (
         <div>
@@ -16,20 +16,19 @@ const TrackListDetailPlaylist = ({ items }) => {
                     <div
                         className={
                             'flex items-center p-2 rounded-lg transition-all duration-300 ' +
-                            (e.streamingStatus === 1 ? 'cursor-pointer' : 'cursor-default hover:bg-current')
-                            // +
-                            // (currnetIndexPlaylist === i
-                            //     ? ' bg-[color:var(--color-primary-bg)]'
-                            //     : ' hover:bg-[color:var(--color-secondary-bg)]')
+                            (e.streamingStatus === 1 ? 'cursor-pointer' : 'cursor-default hover:bg-current') +
+                            (currnetIndexPlaylist === i
+                                ? ' bg-[color:var(--color-primary-bg)]'
+                                : ' hover:bg-[color:var(--color-secondary-bg)]')
                         }
-                        // onClick={() => {
-                        //     if (e.streamingStatus === 1) {
-                        //         dispatch(setSongId(e.encodeId));
-                        //         dispatch(setCurrnetIndexPlaylist(i));
-                        //         dispatch(changeIconPlay(true));
-                        //         dispatch(setAutoPlay(true));
-                        //     }
-                        // }}
+                        onClick={() => {
+                            if (e.streamingStatus === 1) {
+                                dispatch(setSongId(e.encodeId));
+                                dispatch(setCurrentIndexPlaylist(i));
+                                dispatch(changeIconPlay(true));
+                                dispatch(setAutoPlay(true));
+                            }
+                        }}
                     >
                         {/* Thumbnail */}
                         <img className="rounded-lg w-[46px] h-[46px] mr-5" src={e.thumbnail} alt={e.title} />
@@ -39,11 +38,10 @@ const TrackListDetailPlaylist = ({ items }) => {
                             {/* Title */}
                             <div
                                 className={
-                                    'text-lg font-semibold truncate '
-                                    //  +
-                                    // (currnetIndexPlaylist === i
-                                    //     ? ' text-[color:var(--color-primary)]'
-                                    //     : ' text-[color:var(--color-text)]')
+                                    'text-lg font-semibold truncate ' +
+                                    (currnetIndexPlaylist === i
+                                        ? ' text-[color:var(--color-primary)]'
+                                        : ' text-[color:var(--color-text)]')
                                 }
                             >
                                 {e.title}
@@ -51,11 +49,10 @@ const TrackListDetailPlaylist = ({ items }) => {
                             {/* Artist */}
                             <div
                                 className={
-                                    'mt-[2px] text-sm opacity-70 truncate '
-                                    //  +
-                                    // (currnetIndexPlaylist === i
-                                    //     ? ' text-[color:var(--color-primary)]'
-                                    //     : ' text-[color:var(--color-text)]')
+                                    'mt-[2px] text-sm opacity-70 truncate ' +
+                                    (currnetIndexPlaylist === i
+                                        ? ' text-[color:var(--color-primary)]'
+                                        : ' text-[color:var(--color-text)]')
                                 }
                             >
                                 {(e.artists || [])
@@ -84,11 +81,10 @@ const TrackListDetailPlaylist = ({ items }) => {
                         {/* Show Time Deration */}
                         <div
                             className={
-                                'font-medium ' 
-                                // +
-                                // (currnetIndexPlaylist === i
-                                //     ? ' text-[color:var(--color-primary)]'
-                                //     : ' text-[color:var(--color-text)]')
+                                'font-medium ' +
+                                (currnetIndexPlaylist === i
+                                    ? ' text-[color:var(--color-primary)]'
+                                    : ' text-[color:var(--color-text)]')
                             }
                         >
                             {formatTime(e.duration)}

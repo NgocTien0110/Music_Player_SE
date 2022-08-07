@@ -25,6 +25,7 @@ const Home = () => {
                                 <div className="grid grid-cols-5 gap-x-6 gap-y-11">
                                     {e.items.map((element, index) => (
                                         <PlaylistCover
+                                            key={index}
                                             title={element.title}
                                             link={`/playlist/${element.encodeId}`}
                                             thumbnail={element.thumbnail}
